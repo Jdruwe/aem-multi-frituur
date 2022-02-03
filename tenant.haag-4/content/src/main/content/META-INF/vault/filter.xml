@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/haag-4" mode="merge"/>
+    <filter root="/content/haag-4" mode="merge"/>
+    <filter root="/content/dam/haag-4/asset.jpg" mode="merge"/>
+</workspaceFilter>

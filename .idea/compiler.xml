@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="aem-multitenancy-base.tenant.haag-4.core" />
+        <module name="aem-multi-frituur.ui.tests" />
+        <module name="aem-multi-frituur.it.tests" />
+        <module name="aem-multitenancy-base.tenant.haag-4.apps" />
+        <module name="aem-multi-frituur.apps" />
+        <module name="content" />
+        <module name="core" />
+        <module name="aem-multitenancy-base.tenant.haag-4.content" />
+        <module name="aem-multi-frituur.core" />
+        <module name="aem-multi-frituur.ui.content" />
+        <module name="aem-multi-frituur.apps.structure" />
+        <module name="aem-multi-frituur.all" />
+        <module name="aem-multi-frituur.ui.config" />
+        <module name="apps" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aem-multi-frituur.dispatcher" target="1.8" />
+      <module name="apps.structure" target="1.8" />
+      <module name="haag-4" target="1.8" />
+      <module name="tenants" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
