@@ -22,10 +22,10 @@
     <name>aem-multi-frituur - Tenant - Haag 4</name>
 
     <modules>
+        <module>frontend</module>
         <module>apps</module>
         <module>core</module>
         <module>content</module>
-        <module>frontend</module>
     </modules>
 
 </project>
