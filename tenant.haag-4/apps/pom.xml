@@ -104,6 +104,13 @@
 
         <dependency>
             <groupId>be.jeroendruwe</groupId>
+            <artifactId>aem-multi-frituur.tenant.haag-4.frontend</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+
+        <dependency>
+            <groupId>be.jeroendruwe</groupId>
             <artifactId>aem-multi-frituur.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>

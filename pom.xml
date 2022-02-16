@@ -29,8 +29,6 @@
     <modules>
         <module>all</module>
         <module>core</module>
-        <!--TODO: I don't think ui.frontend must be used for now-->
-        <module>ui.frontend</module>
         <module>apps</module>
         <module>apps.structure</module>
         <module>ui.config</module>
@@ -128,20 +126,20 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v12.22.7</nodeVersion>
-                        <npmVersion>6.14.0</npmVersion>
+                        <nodeVersion>v16.13.2</nodeVersion>
+                        <yarnVersion>v1.22.15</yarnVersion>
                     </configuration>
                     <executions>
                         <execution>
-                            <id>install node and npm</id>
+                            <id>install node and yarn</id>
                             <goals>
-                                <goal>install-node-and-npm</goal>
+                                <goal>install-node-and-yarn</goal>
                             </goals>
                         </execution>
                         <execution>
-                            <id>npm install</id>
+                            <id>yarn install</id>
                             <goals>
-                                <goal>npm</goal>
+                                <goal>yarn</goal>
                             </goals>
                         </execution>
                     </executions>

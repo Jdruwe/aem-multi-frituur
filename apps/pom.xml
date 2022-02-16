@@ -122,13 +122,6 @@
 
         <dependency>
             <groupId>be.jeroendruwe</groupId>
-            <artifactId>aem-multi-frituur.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
-        <dependency>
-            <groupId>be.jeroendruwe</groupId>
             <artifactId>aem-multi-frituur.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
