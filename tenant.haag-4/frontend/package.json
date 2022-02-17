@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "dev": "vite -c vite.config.ts",
     "build-vite": "vite build -c vite.config.ts",
     "prod": "yarn run build-vite && yarn run vite-aem-lib generate"
   },

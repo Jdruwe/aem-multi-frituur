@@ -1,0 +1,7 @@
+{
+  "protocol": "http",
+  "hostname": "localhost",
+  "port": "3000",
+  "entry": "src/main.ts",
+  "category": "aem-multi-frituur.tenant.haag-4.base"
+}

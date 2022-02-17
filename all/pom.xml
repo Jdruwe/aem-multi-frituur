@@ -113,6 +113,12 @@
                             <type>zip</type>
                             <target>/apps/haag-4-packages/content/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>be.jeroendruwe</groupId>
+                            <artifactId>aem-multi-frituur.tenant.haag-4.config</artifactId>
+                            <type>zip</type>
+                            <target>/apps/haag-4-packages/application/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -243,6 +249,12 @@
         <dependency>
             <groupId>be.jeroendruwe</groupId>
             <artifactId>aem-multi-frituur.tenant.haag-4.content</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>be.jeroendruwe</groupId>
+            <artifactId>aem-multi-frituur.tenant.haag-4.config</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

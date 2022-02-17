@@ -25,6 +25,7 @@
         <module>frontend</module>
         <module>apps</module>
         <module>core</module>
+        <module>config</module>
         <module>content</module>
     </modules>
 

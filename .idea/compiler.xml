@@ -20,6 +20,7 @@
         <module name="aem-multi-frituur.apps.structure" />
         <module name="aem-multi-frituur.all" />
         <module name="aem-multi-frituur.ui.config" />
+        <module name="config" />
         <module name="apps" />
       </profile>
     </annotationProcessing>
@@ -27,7 +28,6 @@
       <module name="aem-multi-frituur.dispatcher" target="1.8" />
       <module name="aem-multi-frituur.ui.frontend" target="1.8" />
       <module name="apps.structure" target="1.8" />
-      <module name="config" target="1.8" />
       <module name="haag-4" target="1.8" />
       <module name="tenants" target="1.8" />
     </bytecodeTargetLevel>
