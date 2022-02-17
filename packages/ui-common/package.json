@@ -2,5 +2,8 @@
   "name": "@jeroendruwe/ui-common",
   "version": "1.0.0",
   "main": "index.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vue": "3.2.24"
+  }
 }

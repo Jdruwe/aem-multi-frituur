@@ -3,5 +3,14 @@
   "workspaces": [
     "packages/*",
     "tenant.haag-4/frontend"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "syncpack": "^6.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "syncpack list-mismatches"
+    }
+  }
 }
