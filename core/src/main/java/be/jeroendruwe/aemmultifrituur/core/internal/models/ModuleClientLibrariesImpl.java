@@ -23,6 +23,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Model(
         adaptables = {SlingHttpServletRequest.class},
@@ -55,20 +56,27 @@ public class ModuleClientLibrariesImpl implements ModuleClientLibraries {
 
     @PostConstruct
     protected void initModel() {
-        includes = new LinkedHashSet<>();
         List<ModuleBasedClientLibService> moduleBasedClientLibServices = clientLibManagerService.getModuleBasedClientLibServices();
-        if (!moduleBasedClientLibServices.isEmpty()) {
-            Collection<ClientLibrary> libraries = htmlLibraryManager.getLibraries(getCategoryNames(), null, true, false);
-            for (ClientLibrary library : libraries) {
-                Map<String, Object> props = geClientLibraryProperties(library);
-                for (ModuleBasedClientLibService moduleBasedClientLibService : moduleBasedClientLibServices) {
-                    if (moduleBasedClientLibService.isApplicable(props)) {
-                        includes.addAll(moduleBasedClientLibService.getIncludes(library, props));
-                        break;
-                    }
-                }
-            }
+        if (moduleBasedClientLibServices.isEmpty()) {
+            includes = Collections.emptySet();
+        } else {
+            includes = getClientlibs().stream()
+                                      .flatMap(c -> getClientlibIncludes(moduleBasedClientLibServices, c).stream())
+                                      .collect(Collectors.toSet());
         }
+    }
+
+    private Set<String> getClientlibIncludes(List<ModuleBasedClientLibService> moduleBasedClientLibServices, ClientLibrary library) {
+        Map<String, Object> props = geClientLibraryProperties(library);
+        return moduleBasedClientLibServices.stream()
+                                           .filter(s -> s.isApplicable(props))
+                                           .findFirst()
+                                           .map(s -> s.getIncludes(library, props))
+                                           .orElseGet(LinkedHashSet::new);
+    }
+
+    private Collection<ClientLibrary> getClientlibs() {
+        return htmlLibraryManager.getLibraries(getCategoryNames(), null, true, false);
     }
 
     private String[] getCategoryNames() {
