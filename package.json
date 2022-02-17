@@ -10,7 +10,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "syncpack list-mismatches"
+      "pre-push": "syncpack list-mismatches"
     }
   }
 }
