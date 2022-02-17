@@ -84,6 +84,7 @@ fabric.properties
 /it.tests/target/
 /tenant.haag-4/apps/target/
 /tenant.haag-4/frontend/target/
+/tenant.haag-4/config/target/
 /tenant.haag-4/content/target/
 /tenant.haag-4/core/target/
 /ui.config/target/
