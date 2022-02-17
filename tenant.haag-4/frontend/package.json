@@ -8,7 +8,8 @@
     "prod": "yarn run build-vite && yarn run vite-aem-lib generate"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "@jeroendruwe/ui-common": "1.0.0"
   },
   "devDependencies": {
     "@jeroendruwe/vite-aem-clientlib-generator": "^0.0.1",

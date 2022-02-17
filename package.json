@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "tenant.haag-4/frontend"
+  ]
+}
