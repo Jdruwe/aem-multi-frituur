@@ -89,9 +89,7 @@ fabric.properties
 /tenant.haag-4/core/target/
 /ui.config/target/
 /ui.content/target/
-/ui.frontend/dist/
 /ui.frontend/node_modules/
-/ui.frontend/target/
 /ui.tests/target/
 
 **/node_modules
