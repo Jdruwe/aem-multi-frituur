@@ -1,6 +1,9 @@
 {
   "name": "@jeroendruwe/ui-common",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "license": "MIT",
+  "dependencies": {
+    "vue": "^3.2.25"
+  }
 }

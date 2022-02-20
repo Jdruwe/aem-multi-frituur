@@ -1,9 +1,20 @@
-import {createApp} from 'vue'
-import App from './App.vue'
-import sayHello from '@jeroendruwe/ui-common';
+// import {createApp} from 'vue'
+// import App from './App.vue'
+//
+// console.log('>>> main called!');
+//
+// createApp(App).mount('#app');
+//
+// init({});
 
-console.log('>>> main called!');
+import {ModulePromises, VueBootstrap} from '@jeroendruwe/ui-common';
 
-createApp(App).mount('#app');
+const modulePromises: ModulePromises = {
+    ['foo']: () =>
+        import('./foo'),
+    ['bar']: () =>
+        import('./bar')
+};
 
-sayHello();
+const bootstrap = new VueBootstrap(modulePromises);
+
