@@ -1,3 +1,7 @@
+//TODO: do we need to rename interfaces?
+
+import {createApp} from "vue";
+
 export interface ModulePromises {
     [key: string]: () => Promise<ExportedModuleDefinition>;
 }
@@ -10,8 +14,10 @@ interface ExportedModuleDefinition {
     default: ModuleDefinition;
 }
 
-const isFulfilled = <T>(input: PromiseSettledResult<T>): input is PromiseFulfilledResult<T> =>
-    input.status === 'fulfilled';
+interface ElementsPromise {
+    elements: HTMLElement[],
+    promise: () => Promise<ExportedModuleDefinition>
+}
 
 export class VueBootstrap {
 
@@ -25,39 +31,51 @@ export class VueBootstrap {
     private initialize(): void {
         const elements = this.getElements();
         if (elements) {
-            const elementNames = VueBootstrap.getUniqueElementNames(elements);
-            const lazyPromises = this.getLazyPromises(elementNames);
+            const elementNames = VueBootstrap.getDistinctElementNames(elements);
+            const lazyPromises = this.getLazyPromises(elementNames, elements);
             VueBootstrap.loadLazyModules(lazyPromises);
         }
     }
 
-    private getElements(): NodeListOf<Element> | undefined {
-        return document.querySelectorAll(this.buildQuery());
+    private getElements(): HTMLElement[] {
+        return Array.from(document.querySelectorAll(this.buildQuery()));
     }
 
     private buildQuery() {
         return Object.keys(this.modulePromises).join();
     }
 
-    private static getUniqueElementNames(elements: NodeListOf<Element>): Set<string> {
-        return new Set(Array.from(elements).map((el: Element) => el.tagName.toLowerCase()));
+    private static getDistinctElementNames(elements: HTMLElement[]): Set<string> {
+        return new Set(elements.map((el: Element) => el.tagName.toLowerCase()));
     }
 
-    private getLazyPromises(elementNames: Set<string>): (() => Promise<ExportedModuleDefinition>)[] {
-        const promises: (() => Promise<ExportedModuleDefinition>)[] = [];
+    private getLazyPromises(elementNames: Set<string>, elements: HTMLElement[]): ElementsPromise[] {
+        const results: ElementsPromise[] = [];
         elementNames.forEach(elementName => {
-            const modulePromise = this.modulePromises[elementName];
-            modulePromise && promises.push(modulePromise);
+            const promise = this.modulePromises[elementName];
+            promise && results.push({
+                elements: this.getElementsWithName(elements, elementName),
+                promise: promise
+            })
         });
-        return promises;
+        return results;
     }
 
-    private static async loadLazyModules(promises: (() => Promise<ExportedModuleDefinition>)[]) {
-        if (Array.isArray(promises) && promises.length) {
-            const data = await Promise.allSettled(promises.map(promise => promise()));
-            data.filter(isFulfilled).forEach(f => {
-                f.value.default.getComponentDefinition();
-            })
+    private getElementsWithName(elements: HTMLElement[], elementName: string): HTMLElement[] {
+        return elements.filter(e => e.tagName.toLowerCase() === elementName.toLowerCase())
+    }
+
+    private static async loadLazyModules(elementsPromises: ElementsPromise[]) {
+        if (elementsPromises.length) {
+            const data = await Promise.allSettled(elementsPromises.map(ep => ep.promise()));
+            data.forEach((result, index) => {
+                if (result.status === 'fulfilled') {
+                    elementsPromises[index].elements.forEach(el => {
+                        const app = createApp(result.value.default.getComponentDefinition(), {...el.dataset});
+                        app.mount(el);
+                    })
+                }
+            });
         }
     }
 }

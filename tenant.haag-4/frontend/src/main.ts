@@ -10,10 +10,12 @@
 import {ModulePromises, VueBootstrap} from '@jeroendruwe/ui-common';
 
 const modulePromises: ModulePromises = {
+    ['derp']: () =>
+        Promise.reject('Derp'),
+    ['bar']: () =>
+        import('./bar'),
     ['foo']: () =>
         import('./foo'),
-    ['bar']: () =>
-        import('./bar')
 };
 
 const bootstrap = new VueBootstrap(modulePromises);
