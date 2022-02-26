@@ -18,5 +18,6 @@ const modulePromises: ModulePromises = {
         import('./foo'),
 };
 
-const bootstrap = new VueBootstrap(modulePromises);
+new VueBootstrap(modulePromises)
+    .init();
 
