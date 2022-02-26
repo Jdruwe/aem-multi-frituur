@@ -57,7 +57,7 @@ export class VueBootstrap {
 
     /**
      * @param elementsPromises
-     * Resolved promises are returned in the same order as they are requested allowing us to use the index.
+     * Resolved promises are returned in the same order as they are requested allowing the use of index.
      */
     private resolveElementsPromises(elementsPromises: ElementsPromise[]) {
         this.loadModules(elementsPromises).then(data => data.forEach((result, index) => {
