@@ -70,8 +70,12 @@ export class VueBootstrap {
     private async loadModules(elementsPromises: ElementsPromise[]): Promise<PromiseSettledResult<ExportedModuleDefinition>[]> {
         return await Promise.allSettled(elementsPromises.map(ep => ep.promise()));
     }
-
+    
     private mountElements(elements: HTMLElement[], component: Component) {
-        elements.forEach(element => createApp(component, {...element.dataset}).mount(element));
+        elements.forEach(element => {
+            createApp(component, {
+                ...(element.dataset.config && {config: JSON.parse(element.dataset.config)})
+            }).mount(element)
+        });
     }
 }
