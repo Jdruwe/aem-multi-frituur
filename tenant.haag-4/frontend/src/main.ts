@@ -1,7 +1,5 @@
+import './styling/index.css'
 import {ModulePromises, VueBootstrap} from '@jeroendruwe/ui-common';
-
-//TODO: look into this once I pickup styling in this repo
-import './styling/reset.css'
 
 const modulePromises: ModulePromises = {
     ['non-existing']: () =>
