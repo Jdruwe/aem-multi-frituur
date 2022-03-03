@@ -3,7 +3,7 @@ defineProps<{ config: { message: string } }>()
 </script>
 
 <template>
-  <h1>Menu</h1>
+  <h1>Heading</h1>
   <p>{{ config.message }}</p>
 </template>
 

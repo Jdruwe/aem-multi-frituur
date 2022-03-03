@@ -1,6 +1,6 @@
 import {createApp} from "vue";
-import {getDistinctElementNames, getElements} from "../dom/util";
 import {Component} from "@vue/runtime-core";
+import {getDistinctElementNames, getElements} from "../dom/util";
 
 export interface ModulePromises {
     [key: string]: () => Promise<ExportedModuleDefinition>;
@@ -70,7 +70,7 @@ export class VueBootstrap {
     private async loadModules(elementsPromises: ElementsPromise[]): Promise<PromiseSettledResult<ExportedModuleDefinition>[]> {
         return await Promise.allSettled(elementsPromises.map(ep => ep.promise()));
     }
-    
+
     private mountElements(elements: HTMLElement[], component: Component) {
         elements.forEach(element => {
             createApp(component, {
