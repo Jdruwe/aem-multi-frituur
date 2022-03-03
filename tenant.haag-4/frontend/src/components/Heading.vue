@@ -9,6 +9,6 @@ defineProps<{ config: { message: string } }>()
 
 <style scoped>
 p {
-  background: greenyellow;
+  background: lightcoral;
 }
 </style>
