@@ -14,6 +14,11 @@ import org.apache.sling.models.annotations.Model;
 public class OpeningHoursComponentImpl implements OpeningHoursComponent {
 
     @Override
+    public boolean isConfigured() {
+        return true;
+    }
+
+    @Override
     public String getConfig() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         OpeningHoursConfig config = new OpeningHoursConfig("This is an opening hours value!");

@@ -1,0 +1,12 @@
+<template data-sly-template.template="${ @ model }">
+    <sly data-sly-test="${!model.isConfigured}">
+        <sly data-sly-use.placeholder="templates/placeholder.template.html">
+            <sly data-sly-call="${placeholder.template}"></sly>
+        </sly>
+    </sly>
+    <sly data-sly-test="${model.isConfigured}">
+        <sly data-sly-use.common="templates/common.template.html">
+            <sly data-sly-call="${common.template @ model=model}"/>
+        </sly>
+    </sly>
+</template>

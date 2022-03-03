@@ -1,5 +1,4 @@
-import {ModuleDefinition} from '@jeroendruwe/ui-common'
-import Heading from '../components/Heading.vue'
+import {ModuleDefinition, Heading} from '@jeroendruwe/ui-common'
 
 const HeadingModule: ModuleDefinition = {
     getComponent: () => {

@@ -14,6 +14,11 @@ import org.apache.sling.models.annotations.Model;
 public class MenuComponentImpl implements MenuComponent {
 
     @Override
+    public boolean isConfigured() {
+        return true;
+    }
+
+    @Override
     public String getConfig() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         MenuComponentConfig config = new MenuComponentConfig("This is a menu value!");

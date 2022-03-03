@@ -1,5 +1,4 @@
-import {ModuleDefinition} from '@jeroendruwe/ui-common'
-import Menu from '../components/Menu.vue'
+import {ModuleDefinition, Menu} from '@jeroendruwe/ui-common'
 
 const MenuModule: ModuleDefinition = {
     getComponent: () => {

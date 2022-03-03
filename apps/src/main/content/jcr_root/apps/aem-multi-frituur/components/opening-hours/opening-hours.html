@@ -1,3 +1,4 @@
-<sly data-sly-use.component="${'be.jeroendruwe.aemmultifrituur.core.models.OpeningHoursComponent'}">
-    <opening-hours data-config="${component.config}"></opening-hours>
+<sly data-sly-use.openingHours="${'be.jeroendruwe.aemmultifrituur.core.models.OpeningHoursComponent'}">
+    <sly data-sly-use.component="templates/component.template.html"
+         data-sly-call="${component.template @ model=openingHours}"/>
 </sly>

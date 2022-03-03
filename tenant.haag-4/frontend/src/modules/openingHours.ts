@@ -1,5 +1,4 @@
-import {ModuleDefinition} from '@jeroendruwe/ui-common'
-import OpeningHours from '../components/OpeningHours.vue'
+import {ModuleDefinition, OpeningHours} from '@jeroendruwe/ui-common'
 
 const OpeningHoursModule: ModuleDefinition = {
     getComponent: () => {

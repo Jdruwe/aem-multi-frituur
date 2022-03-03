@@ -1,4 +1,4 @@
-<sly data-sly-use.component="${'be.jeroendruwe.aemmultifrituur.core.models.HeadingComponent'}">
-    <heading data-config="${component.config}"></heading>
+<sly data-sly-use.heading="${'be.jeroendruwe.aemmultifrituur.core.models.HeadingComponent'}">
+    <sly data-sly-use.component="templates/component.template.html"
+         data-sly-call="${component.template @ model=heading}"/>
 </sly>
-
