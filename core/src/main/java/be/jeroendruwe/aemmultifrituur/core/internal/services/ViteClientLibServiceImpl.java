@@ -11,6 +11,7 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Component(service = ModuleBasedClientLibService.class)
 @Designate(ocd = ViteClientLibServiceImpl.Config.class)
@@ -45,8 +46,8 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
 
     @Override
     public Set<String> getIncludes(ClientLibrary library, Map<String, Object> props) {
-        if (isViteDevServerEnabled()) {
-            return getViteDevModules(library);
+        if (isDevServerEnabled()) {
+            return getDevModules(library);
         } else {
             return tagGenerationService.generateTags(props);
         }
@@ -63,20 +64,18 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
         this.config = config;
     }
 
-    private boolean isViteDevServerEnabled() {
+    private boolean isDevServerEnabled() {
         return config.viteDevServerEnabled();
     }
 
-    private Set<String> getViteDevModules(ClientLibrary library) {
-        Set<String> libs = new LinkedHashSet<>();
-        for (String category : library.getCategories()) {
-            getDevServerConfig(category).ifPresent(c -> {
-                String viteDevServerUrl = getViteDevServerUrl(c);
-                libs.add("<script type=\"module\" src=\"" + viteDevServerUrl + "@vite/client\"></script>");
-                libs.add("<script type=\"module\" src=\"" + viteDevServerUrl + c.getEntry() + "\"></script>");
-            });
-        }
-        return libs;
+    private Set<String> getDevModules(ClientLibrary library) {
+        return Arrays.stream(library.getCategories())
+                     .map(this::getDevServerConfig)
+                     .filter(Optional::isPresent)
+                     .map(Optional::get)
+                     .map(this::buildDevTagMap)
+                     .flatMap(map -> tagGenerationService.generateTags(map).stream())
+                     .collect(Collectors.toSet());
     }
 
     private Optional<ViteDevServerConfig> getDevServerConfig(String category) {
@@ -90,7 +89,15 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
         return StringUtils.isNoneBlank(c.getEntry(), c.getProtocol(), c.getPort(), c.getHostname());
     }
 
-    private String getViteDevServerUrl(ViteDevServerConfig config) {
+    private Map<String, Object> buildDevTagMap(ViteDevServerConfig config) {
+        String viteDevServerUrl = getDevServerUrl(config);
+        return Collections.singletonMap(TagGenerationService.PN_SCRIPTS, new String[]{
+                viteDevServerUrl + "@vite/client",
+                viteDevServerUrl + config.getEntry()
+        });
+    }
+
+    private String getDevServerUrl(ViteDevServerConfig config) {
         return String.format("%s://%s:%s/", config.getProtocol(), config.getHostname(), config.getPort());
     }
 }
