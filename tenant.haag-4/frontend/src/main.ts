@@ -1,3 +1,4 @@
+import './styling/index.css'
 import {ModulePromises, VueBootstrap} from '@jeroendruwe/ui-common';
 
 const modulePromises: ModulePromises = {
@@ -13,5 +14,3 @@ const modulePromises: ModulePromises = {
 
 new VueBootstrap(modulePromises)
     .init();
-
-import './styling/index.css'

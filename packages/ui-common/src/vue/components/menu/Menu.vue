@@ -7,11 +7,3 @@ defineProps<{ config: { message: string } }>()
     <p>{{ config.message }}</p>
   </div>
 </template>
-
-<style>
-@import "variables.css";
-
-.menu {
-  background-color: var(--menu-background-color, brown);
-}
-</style>

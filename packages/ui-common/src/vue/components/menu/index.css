@@ -1,0 +1,7 @@
+:root {
+    --menu-background-color: red
+}
+
+.menu {
+    background-color: var(--menu-background-color);
+}
