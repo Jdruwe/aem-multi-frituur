@@ -5,6 +5,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
+
+import java.util.List;
 
 @Model(
         adaptables = SlingHttpServletRequest.class,
@@ -13,15 +16,18 @@ import org.apache.sling.models.annotations.Model;
 )
 public class MenuComponentImpl implements MenuComponent {
 
+    @ChildResource
+    private List<Group> groups;
+
     @Override
     public boolean isConfigured() {
-        return true;
+        return groups != null && !groups.isEmpty();
     }
 
     @Override
     public String getConfig() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        MenuComponentConfig config = new MenuComponentConfig("This is a menu value!");
+        MenuComponentConfig config = new MenuComponentConfig(groups);
         return objectMapper.writeValueAsString(config);
     }
 }

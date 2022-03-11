@@ -9,15 +9,17 @@ import java.util.stream.Collectors;
 @Component(service = TagGenerationService.class)
 public class TagGenerationServiceImpl implements TagGenerationService {
 
-    TagGenerationFunction generateScripts = (file) -> "<script type=\"module\" crossorigin src=\"" + file + "\"></script>";
+    TagGenerationFunction generateInclineScripts = (content) -> "<script>" + content + "</script>";
     TagGenerationFunction generatePreloads = (file) -> "<link rel=\"modulepreload\" href=\"" + file + "\">";
+    TagGenerationFunction generateScripts = (file) -> "<script type=\"module\" crossorigin src=\"" + file + "\"></script>";
     TagGenerationFunction generateStylesheets = (file) -> "<link rel=\"stylesheet\" href=\"" + file + "\">";
 
     @Override
     public Set<String> generateTags(Map<String, Object> props) {
         Set<String> tags = new LinkedHashSet<>();
-        tags.addAll(getTags(props, PN_SCRIPTS, generateScripts));
+        tags.addAll(getTags(props, PN_INLINE_SCRIPTS, generateInclineScripts));
         tags.addAll(getTags(props, PN_PRELOADS, generatePreloads));
+        tags.addAll(getTags(props, PN_SCRIPTS, generateScripts));
         tags.addAll(getTags(props, PN_STYLESHEETS, generateStylesheets));
         return tags;
     }

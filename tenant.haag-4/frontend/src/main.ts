@@ -7,10 +7,9 @@ const modulePromises: ModulePromises = {
     ['menu']: () =>
         import('./modules/menu'),
     ['heading']: () =>
-        import('./modules/heading'),
-    ['opening-hours']: () =>
-        import('./modules/openingHours')
+        import('./modules/heading')
 };
 
 new VueBootstrap(modulePromises)
     .init();
+

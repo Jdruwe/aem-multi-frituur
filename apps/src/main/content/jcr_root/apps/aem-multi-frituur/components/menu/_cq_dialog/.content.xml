@@ -27,6 +27,50 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
+                                            <groups
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldLabel="Groups">
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./groups">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <name
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                emptyText="Name"
+                                                                name="./name"
+                                                                required="{Boolean}true"/>
+                                                        <products
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                composite="{Boolean}true"
+                                                                fieldLabel="Products">
+                                                            <field
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                    name="./products">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <name
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            emptyText="Name"
+                                                                            name="./name"
+                                                                            required="{Boolean}true"/>
+                                                                    <price
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            emptyText="Price"
+                                                                            name="./price"
+                                                                            required="{Boolean}true"/>
+                                                                </items>
+                                                            </field>
+                                                        </products>
+                                                    </items>
+                                                </field>
+                                            </groups>
                                         </items>
                                     </column>
                                 </items>

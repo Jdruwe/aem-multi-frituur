@@ -1,10 +1,18 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
+import postcssNesting from 'postcss-nesting';
 
 export default defineConfig({
     server: {
         port: 3000,
         strictPort: true,
+    },
+    css: {
+        postcss: {
+            plugins: [
+                postcssNesting()
+            ]
+        }
     },
     build: {
         outDir: 'dist/clientlib-base',

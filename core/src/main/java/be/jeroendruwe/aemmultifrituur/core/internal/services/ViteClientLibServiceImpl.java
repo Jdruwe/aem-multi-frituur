@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
 
     private static final String IDENTIFIER = "vite";
+    private static final String DEV_CLIENT_SUFFIX = "@vite/client";
+    private static final String DEV_SERVER_WARNING = "Make sure the Vite dev server is running!";
 
     private final List<ViteDevServerConfig> devServerConfigurations = new ArrayList<>();
     private Config config;
@@ -90,14 +92,30 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
     }
 
     private Map<String, Object> buildDevTagMap(ViteDevServerConfig config) {
-        String viteDevServerUrl = getDevServerUrl(config);
-        return Collections.singletonMap(TagGenerationService.PN_SCRIPTS, new String[]{
-                viteDevServerUrl + "@vite/client",
-                viteDevServerUrl + config.getEntry()
+        Map<String, Object> map = new HashMap<>();
+        map.put(TagGenerationService.PN_SCRIPTS, new String[]{
+                getDevClientUrl(config),
+                getDevEntryUrl(config)
         });
+        map.put(TagGenerationService.PN_INLINE_SCRIPTS, new String[]{
+                buildDevServerValidationScript(config)
+        });
+        return map;
     }
 
-    private String getDevServerUrl(ViteDevServerConfig config) {
-        return String.format("%s://%s:%s/", config.getProtocol(), config.getHostname(), config.getPort());
+    private String buildDevServerValidationScript(ViteDevServerConfig config) {
+        return String.format("fetch('%s').catch((error) => { const warnElement = document.createElement('div'); warnElement.style.cssText = 'background:red;color:white;text-align:center'; warnElement.innerText = '%s'; document.body.prepend(warnElement); })", getDevEntryUrl(config), DEV_SERVER_WARNING);
+    }
+
+    private String getDevClientUrl(ViteDevServerConfig config) {
+        return String.format("%s/%s", getDevOrigin(config), DEV_CLIENT_SUFFIX);
+    }
+
+    private String getDevEntryUrl(ViteDevServerConfig config) {
+        return String.format("%s/%s", getDevOrigin(config), config.getEntry());
+    }
+
+    private String getDevOrigin(ViteDevServerConfig config) {
+        return String.format("%s://%s:%s", config.getProtocol(), config.getHostname(), config.getPort());
     }
 }

@@ -1,1 +1,6 @@
 @import "reset.css";
+
+body {
+    background: #f7fafc;
+    font-family: 'Roboto', sans-serif;
+}

@@ -1,7 +1,50 @@
 :root {
-    --menu-background-color: red
+    --menu-group-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.48);
+    --menu-group-gap: -10px;
+    --menu-card-background-color: white;
+    --menu-card-font-color: black;
 }
 
-.menu {
-    background-color: var(--menu-background-color);
+.menu-component {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    padding-top: 30px;
+
+    & .menu__group {
+        width: 20%;
+        background: var(--menu-card-background-color);
+        color: var(--menu-card-font-color);
+        border-radius: 6px;
+        box-shadow: var(--menu-group-shadow);
+        margin-bottom: 30px;
+        padding: 10px;
+
+        & .menu__title {
+            font-size: 15pt;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        & .menu__product {
+            display: flex;
+
+            & .menu__name {
+                flex: 1 1 auto;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        & .menu__group {
+            width: 40%;
+        }
+    }
+
+    @media screen and (max-width: 620px) {
+        & .menu__group {
+            width: 80%;
+        }
+    }
 }

@@ -1,0 +1,20 @@
+:root {
+    --heading-margin-top: 10px;
+    --heading-border: 10px;
+    --heading-border-color: black;
+    --heading-image-max-width: 500px;
+    --heading-radius: 0px;
+}
+
+.heading-component {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+    & img {
+        border: var(--heading-border) solid var(--heading-border-color);
+        border-radius: var(--heading-radius);
+        max-width: var(--heading-image-max-width);
+        width: 100%;
+    }
+}

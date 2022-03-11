@@ -3,11 +3,7 @@ defineProps<{ config: { image: string, alt: string } }>()
 </script>
 
 <template>
-  <img :src="config.image" :alt="config.alt">
+  <div class="heading-component">
+    <img :src="config.image" :alt="config.alt">
+  </div>
 </template>
-
-<style scoped>
-img {
-  max-width: 400px;
-}
-</style>

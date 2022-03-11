@@ -1,13 +1,14 @@
 package be.jeroendruwe.aemmultifrituur.core.internal.models.menu;
 
+import lombok.Getter;
+
+import java.util.List;
+
+@Getter
 public class MenuComponentConfig {
-    private final String message;
+    private final List<Group> groups;
 
-    public MenuComponentConfig(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
+    public MenuComponentConfig(List<Group> groups) {
+        this.groups = groups;
     }
 }
