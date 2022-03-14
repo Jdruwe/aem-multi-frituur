@@ -5,7 +5,8 @@
   },
   "workspaces": [
     "packages/*",
-    "tenant.haag-4/frontend"
+    "tenant.haag-4/frontend",
+    "tenant.penske-vol/frontend"
   ],
   "devDependencies": {
     "husky": "^7.0.4",

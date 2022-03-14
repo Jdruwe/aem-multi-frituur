@@ -1,0 +1,7 @@
+@import "@jeroendruwe/ui-common/src/vue/components/heading/index.css";
+
+:root {
+    --heading-border: 5px;
+    --heading-border-color: #ceaa00;
+    --heading-radius: 20px;
+}
