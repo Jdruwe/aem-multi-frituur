@@ -37,6 +37,7 @@
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/aem-multi-frituur</root></filter>
                         <filter><root>/apps/haag-4</root></filter>
+                        <filter><root>/apps/penske-vol</root></filter>
 
                         <!-- Common overlay roots -->
                         <filter><root>/apps/sling</root></filter>
@@ -51,6 +52,7 @@
                         <!-- DAM folder root, will be created via repoinit -->
                         <filter><root>/content/dam/aem-multi-frituur</root></filter>
                         <filter><root>/content/dam/haag-4</root></filter>
+                        <filter><root>/content/dam/penske-vol</root></filter>
 
                     </filters>
                 </configuration>
