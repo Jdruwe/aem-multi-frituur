@@ -1,5 +1,5 @@
 :root {
-    --heading-margin-top: 10px;
+    --heading-margin-bottom: 40px;
     --heading-border: 10px;
     --heading-border-color: black;
     --heading-image-max-width: 500px;
@@ -9,7 +9,7 @@
 .heading-component {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin-bottom: var(--heading-margin-bottom);
 
     & img {
         border: var(--heading-border) solid var(--heading-border-color);

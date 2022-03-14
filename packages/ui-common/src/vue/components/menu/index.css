@@ -1,29 +1,34 @@
 :root {
-    --menu-group-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.48);
-    --menu-group-gap: -10px;
-    --menu-card-background-color: white;
-    --menu-card-font-color: black;
+    --menu-group-background-color: white;
+    --menu-group-color: black;
+    --menu-group-border-radius: 6px;
+    --menu-group-box-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.48);
+    --menu-group-margin-bottom: 30px;
+    --menu-group-padding: 10px;
+    --menu-title-font-size: 15pt;
+    --menu-title-margin-bottom: 20px;
+    --menu-title-font-weight: 700;
+    --menu-name-margin-bottom: 5px;
 }
 
 .menu-component {
     display: flex;
     justify-content: space-evenly;
     flex-flow: wrap;
-    padding-top: 30px;
 
     & .menu__group {
-        width: 20%;
-        background: var(--menu-card-background-color);
-        color: var(--menu-card-font-color);
-        border-radius: 6px;
-        box-shadow: var(--menu-group-shadow);
-        margin-bottom: 30px;
-        padding: 10px;
+        width: 30%;
+        background: var(--menu-group-background-color);
+        color: var(--menu-group-color);
+        border-radius: var(--menu-group-border-radius);
+        box-shadow: var(--menu-group-box-shadow);
+        margin-bottom: var(--menu-group-margin-bottom);
+        padding: var(--menu-group-padding);
 
         & .menu__title {
-            font-size: 15pt;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: var(--menu-title-font-size);
+            margin-bottom: var(--menu-title-margin-bottom);
+            font-weight: var(--menu-title-font-weight);
         }
 
         & .menu__product {
@@ -31,7 +36,7 @@
 
             & .menu__name {
                 flex: 1 1 auto;
-                margin-bottom: 5px;
+                margin-bottom: var(--menu-name-margin-bottom);
             }
         }
     }
