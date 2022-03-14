@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
+    <parent>
+        <artifactId>aem-multi-frituur</artifactId>
+        <groupId>be.jeroendruwe</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+    <!-- ====================================================================== -->
+    <artifactId>aem-multi-frituur.tenant.penske-vol</artifactId>
+    <packaging>pom</packaging>
+    <name>aem-multi-frituur - Tenant - Penske Vol</name>
+
+    <modules>
+        <module>frontend</module>
+        <module>apps</module>
+        <module>core</module>
+        <module>config</module>
+        <module>content</module>
+    </modules>
+
+</project>
+

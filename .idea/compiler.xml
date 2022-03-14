@@ -7,28 +7,35 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="aem-multi-frituur.tenant.penske-vol.config" />
         <module name="aem-multi-frituur.tenant.haag-4.apps" />
         <module name="aem-multi-frituur.ui.tests" />
         <module name="aem-multi-frituur.it.tests" />
         <module name="aem-multi-frituur.tenant.haag-4.content" />
         <module name="aem-multi-frituur.apps" />
+        <module name="aem-multi-frituur.tenant.penske-vol.core" />
+        <module name="aem-multi-frituur.tenant.haag-4.config" />
         <module name="aem-multi-frituur.tenant.haag-4.core" />
-        <module name="content" />
-        <module name="core" />
+        <module name="aem-multi-frituur.tenant.penske-vol.content" />
         <module name="aem-multi-frituur.core" />
         <module name="aem-multi-frituur.ui.content" />
         <module name="aem-multi-frituur.apps.structure" />
         <module name="aem-multi-frituur.all" />
         <module name="aem-multi-frituur.ui.config" />
-        <module name="config" />
-        <module name="apps" />
+        <module name="aem-multi-frituur.tenant.penske-vol.apps" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aem-multi-frituur.dispatcher" target="1.8" />
       <module name="aem-multi-frituur.ui.frontend" target="1.8" />
+      <module name="apps" target="1.8" />
       <module name="apps.structure" target="1.8" />
+      <module name="config" target="1.8" />
+      <module name="content" target="1.8" />
+      <module name="core" target="1.8" />
+      <module name="frontend" target="1.8" />
       <module name="haag-4" target="1.8" />
+      <module name="tenant.penske-vol" target="1.8" />
       <module name="tenants" target="1.8" />
     </bytecodeTargetLevel>
   </component>

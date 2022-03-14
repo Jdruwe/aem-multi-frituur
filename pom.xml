@@ -36,6 +36,7 @@
         <module>it.tests</module>
         <module>ui.tests</module>
         <module>tenant.haag-4</module>
+        <module>tenant.penske-vol</module>
     </modules>
 
     <properties>
