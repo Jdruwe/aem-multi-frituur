@@ -127,8 +127,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Generic Page"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[haag-4.dependencies,haag-4.site]"
-                        clientlibsJsHead="haag-4.dependencies">
+                        esModuleClientlibs="aem-multi-frituur.tenant.haag-4.base">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>

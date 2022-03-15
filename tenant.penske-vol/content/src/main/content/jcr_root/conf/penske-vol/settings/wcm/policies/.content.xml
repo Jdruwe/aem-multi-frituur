@@ -127,8 +127,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Generic Page"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[penske-vol.dependencies,penske-vol.site]"
-                        clientlibsJsHead="penske-vol.dependencies">
+                        esModuleClientlibs="aem-multi-frituur.tenant.penske-vol.base">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>

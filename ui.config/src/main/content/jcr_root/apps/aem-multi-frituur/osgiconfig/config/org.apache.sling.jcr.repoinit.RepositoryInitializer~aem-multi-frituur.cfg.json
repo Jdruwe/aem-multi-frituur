@@ -4,6 +4,6 @@
     "create path (nt:unstructured) /content/dam/aem-multi-frituur/jcr:content",
     "set properties on /content/dam/aem-multi-frituur/jcr:content\n  set cq:conf{String} to /conf/aem-multi-frituur\n  set jcr:title{String} to \"aem-multi-frituur\"\nend",
     "create service user client-lib-manager-user",
-    "set ACL for client-lib-manager-user\n  allow jcr:read on /apps/haag-4/clientlibs\nend"
+    "set ACL for client-lib-manager-user\n  allow jcr:read on /apps/haag-4/clientlibs\n  allow jcr:read on /apps/penske-vol/clientlibs\nend"
   ]
 }

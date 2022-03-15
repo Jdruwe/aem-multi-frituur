@@ -104,7 +104,7 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
     }
 
     private String buildDevServerValidationScript(ViteDevServerConfig config) {
-        return String.format("fetch('%s').catch((error) => { const warnElement = document.createElement('div'); warnElement.style.cssText = 'background:red;color:white;text-align:center'; warnElement.innerText = '%s'; document.body.prepend(warnElement); })", getDevEntryUrl(config), DEV_SERVER_WARNING);
+        return String.format("fetch('%s').catch((error) => {alert('%s')})", getDevEntryUrl(config), DEV_SERVER_WARNING);
     }
 
     private String getDevClientUrl(ViteDevServerConfig config) {

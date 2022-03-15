@@ -18,4 +18,5 @@
     <filter root="/apps/aem-multi-frituur-packages"/>
     <filter root="/apps/aem-multi-frituur-vendor-packages"/>
     <filter root="/apps/haag-4-packages"/>
+    <filter root="/apps/penske-vol-packages"/>
 </workspaceFilter>

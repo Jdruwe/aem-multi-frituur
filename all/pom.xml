@@ -119,6 +119,31 @@
                             <type>zip</type>
                             <target>/apps/haag-4-packages/application/install</target>
                         </embedded>
+
+                        <!-- Tenant Penske Vol -->
+                        <embedded>
+                            <groupId>be.jeroendruwe</groupId>
+                            <artifactId>aem-multi-frituur.tenant.penske-vol.apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/penske-vol-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>be.jeroendruwe</groupId>
+                            <artifactId>aem-multi-frituur.tenant.penske-vol.core</artifactId>
+                            <target>/apps/penske-vol-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>be.jeroendruwe</groupId>
+                            <artifactId>aem-multi-frituur.tenant.penske-vol.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/penske-vol-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>be.jeroendruwe</groupId>
+                            <artifactId>aem-multi-frituur.tenant.penske-vol.config</artifactId>
+                            <type>zip</type>
+                            <target>/apps/penske-vol-packages/application/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -255,6 +280,26 @@
         <dependency>
             <groupId>be.jeroendruwe</groupId>
             <artifactId>aem-multi-frituur.tenant.haag-4.config</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+
+        <!-- Tenant Penske Vol -->
+        <dependency>
+            <groupId>be.jeroendruwe</groupId>
+            <artifactId>aem-multi-frituur.tenant.penske-vol.apps</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>be.jeroendruwe</groupId>
+            <artifactId>aem-multi-frituur.tenant.penske-vol.content</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>be.jeroendruwe</groupId>
+            <artifactId>aem-multi-frituur.tenant.penske-vol.config</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
