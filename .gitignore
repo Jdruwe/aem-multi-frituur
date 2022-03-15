@@ -87,6 +87,11 @@ fabric.properties
 /tenant.haag-4/config/target/
 /tenant.haag-4/content/target/
 /tenant.haag-4/core/target/
+/tenant.penske-vol/apps/target/
+/tenant.penske-vol/frontend/target/
+/tenant.penske-vol/config/target/
+/tenant.penske-vol/content/target/
+/tenant.penske-vol/core/target/
 /ui.config/target/
 /ui.content/target/
 /ui.frontend/node_modules/
