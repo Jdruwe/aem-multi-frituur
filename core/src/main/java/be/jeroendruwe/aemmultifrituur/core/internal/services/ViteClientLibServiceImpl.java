@@ -19,7 +19,7 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
 
     private static final String IDENTIFIER = "vite";
     private static final String DEV_CLIENT_SUFFIX = "@vite/client";
-    private static final String DEV_SERVER_WARNING = "Make sure the Vite dev server is running!";
+    private static final String DEV_SERVER_WARNING = "Vite dev server is not running.";
 
     private final List<ViteDevServerConfig> devServerConfigurations = new ArrayList<>();
     private Config config;
