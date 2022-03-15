@@ -28,8 +28,11 @@ export interface RenderRequestEvent {
 export class VueBootstrap {
 
     private readonly modulePromises: ModulePromises;
+
+    private readonly PROMISE_STATUS_FULFILLED = 'fulfilled';
     private readonly MESSAGE_EVENT = 'message';
     private readonly MESSAGE_RENDER_REQUEST = 'render-request';
+    private readonly ATTRIBUTE_ELEMENT_MOUNTED = 'data-v-app';
 
     constructor(modulePromises: ModulePromises) {
         this.modulePromises = modulePromises;
@@ -74,7 +77,7 @@ export class VueBootstrap {
      */
     private resolveElementsPromises(elementsPromises: ElementsPromise[]) {
         this.loadModules(elementsPromises).then(data => data.forEach((result, index) => {
-            if (result.status === 'fulfilled') {
+            if (result.status === this.PROMISE_STATUS_FULFILLED) {
                 this.mountElements(elementsPromises[index].elements, result.value.default.getComponent())
             }
         }))
@@ -86,10 +89,16 @@ export class VueBootstrap {
 
     private mountElements(elements: HTMLElement[], component: Component) {
         elements.forEach(element => {
-            createApp(component, {
-                ...(element.dataset.config && {config: JSON.parse(element.dataset.config)})
-            }).mount(element)
+            if (!this.isElementMounted(element)) {
+                createApp(component, {
+                    ...(element.dataset.config && {config: JSON.parse(element.dataset.config)})
+                }).mount(element)
+            }
         });
+    }
+
+    private isElementMounted(element: HTMLElement) {
+        return element.hasAttribute(this.ATTRIBUTE_ELEMENT_MOUNTED);
     }
 
     private listenToRenderRequest() {
