@@ -1,5 +1,6 @@
 @import "@jeroendruwe/ui-common/src/vue/components/menu/index.css";
 
 :root {
-    --menu-group-background-color: #ccbd7a;
+    --menu-group-background-color: brown;
+    --menu-group-color: white;
 }

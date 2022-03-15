@@ -32,7 +32,7 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="penske-vol/components/heading"
                         alt="This is the alt"
-                        fileReference="/content/dam/penske-vol/penske-vol.jpeg"/>
+                        fileReference="/content/dam/penske-vol/penske-vol.jpg"/>
                     <menu
                         jcr:created="{Date}2022-02-20T21:25:26.905+01:00"
                         jcr:createdBy="admin"

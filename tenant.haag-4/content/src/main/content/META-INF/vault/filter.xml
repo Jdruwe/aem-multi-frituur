@@ -2,5 +2,5 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/haag-4" mode="merge"/>
     <filter root="/content/haag-4" mode="merge"/>
-    <filter root="/content/dam/haag-4/asset.jpg" mode="merge"/>
+    <filter root="/content/dam/haag-4/haag-4.jpeg" mode="merge"/>
 </workspaceFilter>
