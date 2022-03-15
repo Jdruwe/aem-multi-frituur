@@ -3,12 +3,18 @@ const setupNamespace = () => {
 }
 
 const listenToUpdate = () => {
-    window.AemMultiFrituur.AFTER_EDIT = () => {
-        requestRender();
+    window.AemMultiFrituur.requestRender = (parent) => {
+        if (parent) {
+            window.Granite.author.responsive.EditableActions.REFRESH.execute(parent).then(() => {
+                sendRenderRequest();
+            });
+        } else {
+            sendRenderRequest();
+        }
     }
 }
 
-const requestRender = () => {
+const sendRenderRequest = () => {
     window.postMessage(
         {
             type: 'render-request',

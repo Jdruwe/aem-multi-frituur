@@ -3,5 +3,6 @@
           xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="cq:EditConfig">
     <cq:listeners jcr:primaryType="cq:EditListenersConfig"
-                  afteredit="function(){AemMultiFrituur.AFTER_EDIT();}"/>
+                  afteredit="function(){AemMultiFrituur.requestRender();}"
+                  afterinsert="function(){AemMultiFrituur.requestRender(this.getParent());}"/>
 </jcr:root>
