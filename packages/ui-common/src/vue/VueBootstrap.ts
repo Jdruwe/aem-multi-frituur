@@ -19,15 +19,28 @@ interface ElementsPromise {
     promise: () => Promise<ExportedModuleDefinition>
 }
 
+export interface RenderRequestEvent {
+    data: {
+        type: string;
+    };
+}
+
 export class VueBootstrap {
 
     private readonly modulePromises: ModulePromises;
+    private readonly MESSAGE_EVENT = 'message';
+    private readonly MESSAGE_RENDER_REQUEST = 'render-request';
 
     constructor(modulePromises: ModulePromises) {
         this.modulePromises = modulePromises;
     }
 
     public init(): void {
+        this.render();
+        this.listenToRenderRequest()
+    }
+
+    private render() {
         const elements = getElements(this.buildQuery());
         if (elements) {
             const elementNames = getDistinctElementNames(elements);
@@ -77,5 +90,19 @@ export class VueBootstrap {
                 ...(element.dataset.config && {config: JSON.parse(element.dataset.config)})
             }).mount(element)
         });
+    }
+
+    private listenToRenderRequest() {
+        window.parent.addEventListener(this.MESSAGE_EVENT, (event): void => this.handleRenderRequest(event), false);
+    }
+
+    private handleRenderRequest(event: RenderRequestEvent): void {
+        if (this.isValidRenderRequest(event)) {
+            this.render();
+        }
+    }
+
+    private isValidRenderRequest(event: RenderRequestEvent): boolean {
+        return event.data && event.data.type === this.MESSAGE_RENDER_REQUEST;
     }
 }
