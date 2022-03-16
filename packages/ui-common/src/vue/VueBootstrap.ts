@@ -76,14 +76,14 @@ export class VueBootstrap {
      * Resolved promises are returned in the same order as they are requested allowing the use of index.
      */
     private resolveElementsPromises(elementsPromises: ElementsPromise[]) {
-        this.loadModules(elementsPromises).then(data => data.forEach((result, index) => {
+        VueBootstrap.loadModules(elementsPromises).then(data => data.forEach((result, index) => {
             if (result.status === this.PROMISE_STATUS_FULFILLED) {
                 this.mountElements(elementsPromises[index].elements, result.value.default.getComponent())
             }
         }))
     }
 
-    private async loadModules(elementsPromises: ElementsPromise[]): Promise<PromiseSettledResult<ExportedModuleDefinition>[]> {
+    private static async loadModules(elementsPromises: ElementsPromise[]): Promise<PromiseSettledResult<ExportedModuleDefinition>[]> {
         return await Promise.allSettled(elementsPromises.map(ep => ep.promise()));
     }
 
