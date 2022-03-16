@@ -4,4 +4,4 @@
           allowProxy="{Boolean}true"
           cssProcessor="[default:none,min:none]"
           jsProcessor="[default:none,min:none]"
-          categories="[cq.authoring.editor.sites.page.hook]"/>
+          categories="[cq.authoring.editor]"/>

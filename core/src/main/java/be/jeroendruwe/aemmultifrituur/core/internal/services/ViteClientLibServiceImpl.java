@@ -1,20 +1,20 @@
 package be.jeroendruwe.aemmultifrituur.core.internal.services;
 
+import be.jeroendruwe.aemmultifrituur.core.services.DevServerService;
 import be.jeroendruwe.aemmultifrituur.core.services.ModuleBasedClientLibService;
 import be.jeroendruwe.aemmultifrituur.core.services.TagGenerationService;
 import be.jeroendruwe.aemmultifrituur.core.services.ViteDevServerConfig;
 import com.adobe.granite.ui.clientlibs.ClientLibrary;
 import org.apache.commons.lang3.StringUtils;
-import org.osgi.service.component.annotations.*;
-import org.osgi.service.metatype.annotations.AttributeDefinition;
-import org.osgi.service.metatype.annotations.Designate;
-import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Component(service = ModuleBasedClientLibService.class)
-@Designate(ocd = ViteClientLibServiceImpl.Config.class)
 public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
 
     private static final String IDENTIFIER = "vite";
@@ -22,10 +22,12 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
     private static final String DEV_SERVER_WARNING = "Vite dev server is not running.";
 
     private final List<ViteDevServerConfig> devServerConfigurations = new ArrayList<>();
-    private Config config;
 
     @Reference
     private TagGenerationService tagGenerationService;
+
+    @Reference
+    private DevServerService devServerService;
 
     @Reference(
             service = ViteDevServerConfig.class,
@@ -48,26 +50,11 @@ public class ViteClientLibServiceImpl implements ModuleBasedClientLibService {
 
     @Override
     public Set<String> getIncludes(ClientLibrary library, Map<String, Object> props) {
-        if (isDevServerEnabled()) {
+        if (devServerService.isDevServerEnabled()) {
             return getDevModules(library);
         } else {
             return tagGenerationService.generateTags(props);
         }
-    }
-
-    @ObjectClassDefinition(name = "Vite Dev Server Integration Configuration")
-    @interface Config {
-        @AttributeDefinition(name = "Enable Vite Integration") boolean viteDevServerEnabled() default false;
-    }
-
-    @Activate
-    @Modified
-    protected void activate(Config config) {
-        this.config = config;
-    }
-
-    private boolean isDevServerEnabled() {
-        return config.viteDevServerEnabled();
     }
 
     private Set<String> getDevModules(ClientLibrary library) {

@@ -2,4 +2,5 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/aem-multi-frituur/clientlibs"/>
     <filter root="/apps/aem-multi-frituur/components"/>
+    <filter root="/apps/wcm/core"/>
 </workspaceFilter>
