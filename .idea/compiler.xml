@@ -19,7 +19,6 @@
         <module name="aem-multi-frituur.tenant.penske-vol.content" />
         <module name="aem-multi-frituur.config" />
         <module name="aem-multi-frituur.core" />
-        <module name="aem-multi-frituur.ui.content" />
         <module name="aem-multi-frituur.apps.structure" />
         <module name="aem-multi-frituur.all" />
         <module name="aem-multi-frituur.tenant.penske-vol.apps" />
@@ -27,6 +26,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aem-multi-frituur.dispatcher" target="1.8" />
+      <module name="aem-multi-frituur.ui.content" target="1.8" />
       <module name="aem-multi-frituur.ui.frontend" target="1.8" />
       <module name="apps" target="1.8" />
       <module name="apps.structure" target="1.8" />

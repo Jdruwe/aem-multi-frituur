@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/dispatcher/pom.xml" />
         <option value="$PROJECT_DIR$/tenant.haag-4/apps.structure/pom.xml" />
         <option value="$PROJECT_DIR$/tenants/pom.xml" />
+        <option value="$PROJECT_DIR$/ui.content/pom.xml" />
       </set>
     </option>
   </component>
