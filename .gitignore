@@ -92,7 +92,7 @@ fabric.properties
 /tenant.penske-vol/config/target/
 /tenant.penske-vol/content/target/
 /tenant.penske-vol/core/target/
-/ui.config/target/
+/config/target/
 /ui.content/target/
 /ui.frontend/node_modules/
 /ui.tests/target/

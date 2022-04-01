@@ -17,11 +17,11 @@
         <module name="aem-multi-frituur.tenant.haag-4.config" />
         <module name="aem-multi-frituur.tenant.haag-4.core" />
         <module name="aem-multi-frituur.tenant.penske-vol.content" />
+        <module name="aem-multi-frituur.config" />
         <module name="aem-multi-frituur.core" />
         <module name="aem-multi-frituur.ui.content" />
         <module name="aem-multi-frituur.apps.structure" />
         <module name="aem-multi-frituur.all" />
-        <module name="aem-multi-frituur.ui.config" />
         <module name="aem-multi-frituur.tenant.penske-vol.apps" />
       </profile>
     </annotationProcessing>
