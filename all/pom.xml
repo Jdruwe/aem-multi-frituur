@@ -67,13 +67,7 @@
                         </embedded>
                         <embedded>
                             <groupId>be.jeroendruwe</groupId>
-                            <artifactId>aem-multi-frituur.ui.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/aem-multi-frituur-packages/content/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>be.jeroendruwe</groupId>
-                            <artifactId>aem-multi-frituur.ui.config</artifactId>
+                            <artifactId>aem-multi-frituur.config</artifactId>
                             <type>zip</type>
                             <target>/apps/aem-multi-frituur-packages/application/install</target>
                         </embedded>
@@ -242,13 +236,7 @@
         </dependency>
         <dependency>
             <groupId>be.jeroendruwe</groupId>
-            <artifactId>aem-multi-frituur.ui.content</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>be.jeroendruwe</groupId>
-            <artifactId>aem-multi-frituur.ui.config</artifactId>
+            <artifactId>aem-multi-frituur.config</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
